@@ -1,0 +1,19 @@
+{
+  "name": "generics",
+  "version": "0.0.1",
+  "description": "An open source tool to easily create mobile-aware web site based on database stored data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stomita/generics.git"
+  },
+  "author": "shinichi.tomita@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stomita/generics/issues"
+  },
+  "homepage": "https://github.com/stomita/generics"
+}
