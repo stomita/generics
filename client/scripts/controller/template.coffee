@@ -4,8 +4,8 @@ module.exports = ($scope, $http, $location) ->
     console.error err
     null
   $scope.loading = true
-  $scope.reports =
-    $http.get "/api/reports"
+  $scope.templates =
+    $http.get "/api/templates"
       .then (res) ->
         console.log res.data
         res.data
@@ -13,11 +13,8 @@ module.exports = ($scope, $http, $location) ->
       .then (res) ->
         $scope.loading = false
         res
-
-  $scope.selectReport = ->
-    console.log "selectReport"
-    return unless $scope.reportId
-    $scope.setValue("reportId", $scope.reportId)
+  $scope.selectTemplate = (template) ->
+    $scope.setValue("template", template)
     $scope.nextStep()
 
 module.exports.$inject = [ "$scope", "$http", "$location" ]

@@ -2,9 +2,8 @@
   <h2>Choose Data Source</h2>
   <form class="form-inline">
     <div class="form-group">
-      <select class="form-control">
+      <select class="form-control" ng-model="reportId" ng-change="selectReport()" ng-options="report.id as report.name for report in reports">
         <option value="" selected="selected">-- Select a report to publish ---</option>
-        <option ng-repeat="report in reports" value="{{ report.id }}">{{ report.name }}</option>
       </select>
     </div>
   </form>

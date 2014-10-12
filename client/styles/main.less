@@ -1,1 +1,34 @@
 @import "./bootstrap-nav-wizard.less";
+
+
+.slide-animate-container {
+  position:relative;
+  min-height:400px;
+  overflow:hidden;
+  .slide-animate {
+    &.ng-enter, &ng.leave {
+      -webkit-transition:all 0.2s;
+      transition:all 0.2s;
+      position: absolute;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      display:block;
+      padding:10px;
+    }
+    &.ng-enter {
+      left:100%;
+      &.ng-enter-active {
+        left: 0;
+      }
+    }
+    &.ng-leave {
+      left:0;
+      &.ng-leave-active {
+        left:-100%;
+      }
+    }
+  }
+}
+

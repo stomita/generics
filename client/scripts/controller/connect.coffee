@@ -1,13 +1,15 @@
 module.exports = ($scope, $http) ->
   $scope.loading = true
-  $http.get "/api/identity"
-    .then (res) ->
-      console.log res
-      $scope.identity = res.data
-      $scope.loading = false
-    , (err) ->
-      console.error err
-      $scope.identity = null
-      $scope.loading = false
+  $scope.identity =
+    $http.get "/api/identity"
+      .then (res) ->
+        console.log res
+        res.data
+      .catch (err) ->
+        $scope.loading = false
+        null
+      .then (res) ->
+        $scope.loading = false
+        res
 
 module.exports.$inject = [ "$scope", "$http" ]

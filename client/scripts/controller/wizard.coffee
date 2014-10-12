@@ -1,12 +1,11 @@
 module.exports = ($scope, $routeParams, $location) ->
-  $scope.wizardState = {} unless $scope.wizardState
   $scope.steps = [
     id: "start"
-    title: "Welcome"
+    title: "Start"
     isEnabled: -> true
   ,
     id: "template"
-    title: "Choose Mobile Template"
+    title: "Select Template"
     isEnabled: -> true
   ,
     id: "connect"
@@ -16,12 +15,17 @@ module.exports = ($scope, $routeParams, $location) ->
     id: "datasource"
     title: "Choose Data Source"
     isEnabled: -> true
+  ,
+    id: "mapping"
+    title: "Edit Field Mapping"
+    isEnabled: -> true
   ]
   for step, index in $scope.steps when step.id == $routeParams.step
     step.active = true
     $scope.activeStep = step
     $scope.activeStepIndex = index
     break
+
   $scope.nextStep = ->
     nextStep = $scope.steps[$scope.activeStepIndex+1]
     $location.url("/step/" + nextStep.id) if nextStep

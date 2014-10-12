@@ -1,0 +1,20 @@
+<div ng-controller="MappingCtrl">
+  <h2>Edit Mapping</h2>
+  <div class="row">
+    <div class="col-md-6">
+      <img src="{{ template.mappingPreview }}">
+    </div>
+    <div class="col-md-6">
+      <form class="form">
+        <div class="form-group" ng-repeat="field in template.fields">
+          <label>{{ field.label }}: </label>
+          <select class="form-control" ng-options="column.name as column.label for column in reportMeta.columns" ng-model="mapping[field.name]">
+            <option value="">-- Select Column --</option>
+          </select>
+        </div>
+      </form>
+    </div>
+  </div>
+  <button class="btn btn-primary pull-right" ng-click="startPreview()">Next &raquo;</button>
+</div>
+

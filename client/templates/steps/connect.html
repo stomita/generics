@@ -7,10 +7,10 @@
     <div ng-show="identity">
       Name: {{ identity.display_name }} <br/>
       Username: {{ identity.username }} <br/>
-      <a class="btn btn-primary" ng-click="nextStep()">Next &raquo;</a>
+      <a class="btn btn-primary pull-right" ng-click="nextStep()">Next &raquo;</a>
     </div>
     <div ng-show="!identity">
-      <a class="btn btn-primary" href="/auth/salesforce">Connect to Salesforce</a>
+      <a class="btn btn-primary btn-lg" href="/auth/salesforce">Connect to Salesforce</a>
     </div>
   </div>
 </div>

@@ -4,5 +4,7 @@
       <a href="/#/step/{{ step.id }}">{{ step.title }}</a>
     </li>
   </ul>
-  <div ng-include="'templates/steps/' + activeStep.id + '.html'"></div>
+  <div class="slide-animate-container">
+    <div class="slide-animate" ng-include="'templates/steps/' + activeStep.id + '.html'"></div>
+  </div>
 </div>
