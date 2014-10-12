@@ -5,7 +5,7 @@ jsforce = require "jsforce"
 #
 ###
 app.all "/api/*", (req, res, next) ->
-  if req.session.accessToken && req.session.instanceUrl
+  if req.url == "/api/templates" || (req.session.accessToken && req.session.instanceUrl)
     next()
   else
     res.send { error: "NO_CONNECTION", message: "No connection found in server." }, 401
@@ -59,6 +59,37 @@ app.get "/api/reports/:reportId/metadata", (req, res) ->
       columns: columns
   , (err) ->
     res.send err, 500
+
+
+getRecords = (conn, reportId, mapping) ->
+  conn.analytics.report(reportId).execute(details: true).then (result) ->
+    meta = result.reportMetadata
+    for row in result.factMap["T!T"]?.rows || []
+      record = {}
+      for cell, index in row.dataCells
+        record[meta.detailColumns[index]] = cell.label
+      mappedRecord = {}
+      for field, column of mapping
+        mappedRecord[field] = record[column]
+      mappedRecord
+
+
+###
+#
+###
+app.post "/api/output", (req, res) ->
+  reportId = req.body.reportId
+  mapping = req.body.mapping
+  template = req.body.template
+  conn = new jsforce.Connection
+    accessToken: req.session.accessToken
+    instanceUrl: req.session.instanceUrl
+  getRecords(conn, reportId, mapping)
+    .then (records) ->
+      res.send records
+    , (err) ->
+      res.send err, 500
+
 
 
 ###

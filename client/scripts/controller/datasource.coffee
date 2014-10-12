@@ -18,6 +18,7 @@ module.exports = ($scope, $http, $location) ->
     console.log "selectReport"
     return unless $scope.reportId
     $scope.setValue("reportId", $scope.reportId)
+    $scope.setValue("mapping", {})
     $scope.nextStep()
 
 module.exports.$inject = [ "$scope", "$http", "$location" ]

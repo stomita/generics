@@ -26,6 +26,7 @@ app = angular.module "app", [
     console.log "setValue", name, value
     $scope[name] = value
   $scope.getValue = (name) ->
-    console.log "getValue", name, $scope[name]
-    $scope[name]
+    value = $scope[name]
+    console.log "getValue", name, value
+    value
 ]

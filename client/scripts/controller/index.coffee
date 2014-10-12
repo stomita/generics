@@ -4,3 +4,4 @@ module.exports = angular.module "app.controllers", []
   .controller "ConnectCtrl", require "./connect"
   .controller "DatasourceCtrl", require "./datasource"
   .controller "MappingCtrl", require "./mapping"
+  .controller "OutputCtrl", require "./output"
