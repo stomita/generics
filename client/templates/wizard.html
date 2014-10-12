@@ -1,0 +1,8 @@
+<div>
+  <ul class="nav nav-wizard">
+    <li ng-repeat="step in steps" ng-class="{ active: step.active }">
+      <a href="#/step/{{ step.id }}" data-toggle="tab">{{ step.title }}</a></li>
+    </li>
+  </ul>
+  <div ng-include="'templates/steps/' + activeStep.id + '.html'"></div>
+</div>
