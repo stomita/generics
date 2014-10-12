@@ -64,11 +64,12 @@ app.get "/api/reports/:reportId/metadata", (req, res) ->
 getRecords = (conn, reportId, mapping) ->
   conn.analytics.report(reportId).execute(details: true).then (result) ->
     meta = result.reportMetadata
-    for row in result.factMap["T!T"]?.rows || []
+    for row, i in result.factMap["T!T"]?.rows || []
       record = {}
       for cell, index in row.dataCells
-        record[meta.detailColumns[index]] = cell.label
-      mappedRecord = {}
+        record[meta.detailColumns[index]] =
+          if /^<a\s+/.test(cell.label) then cell.value else cell.label
+      mappedRecord = { id: String(i) }
       for field, column of mapping
         mappedRecord[field] = record[column]
       mappedRecord

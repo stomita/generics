@@ -32,6 +32,7 @@ module.exports = ($scope, $http, $location) ->
         outputTo: cloud.name
       .then (res) ->
         console.log res.data
+        window._result = res.data
         res.data
       .catch handleError
       .then (res) ->

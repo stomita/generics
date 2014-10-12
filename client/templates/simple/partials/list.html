@@ -1,0 +1,26 @@
+<input type="search" ng-model="searchText" class="form-control app-search" placeholder="Search.." />
+<div class="scrollable list-view">
+  <div class="scrollable-content">
+    <div class="list-group">
+      <a ng-repeat="record in records" href="#/record/{{ record.id }}" class="list-group-item">
+        <i class="fa fa-chevron-right pull-right"></i>
+        <div class="list-item">
+          <span class="previewPhoto" style="background-image: url({{ record.previewPhotoUrl || '/images/none.png' }})"></span>
+          <div class="caption">
+            <span class="title" ng-show="record.title">{{ record.title }}</span>
+            <span class="icon1" ng-show="record.icon1">{{ record.icon1 }}</span>
+          </div>
+          <div class="subCaption">
+            <span class="description" ng-show="record.description">{{ record.description }}</span>
+          </div>
+          <div class="footer">
+            <span class="icon icon2" ng-show="record.icon2">{{ record.icon2 }}</span>
+            <span class="note" ng-show="record.icon2">{{ record.icon2 }}</span>
+            <span class="icon icon3" ng-show="record.icon3">{{ record.icon3 }}</span>
+          </div>
+        </div>
+        <span style="clear:both"></span>
+      </a>
+    </div>
+  </div>
+</div>
