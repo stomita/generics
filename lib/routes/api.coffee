@@ -108,10 +108,12 @@ app.post "/api/output", (req, res) ->
 #
 ###
 app.get "/api/templates", (req, res) ->
+  # TODO
   res.send [{
     "name": "simple",
     "title": "Simple",
     "previewUrl": "/templates/simple/images/preview.png",
+    "mappingPreviewUrl": "/templates/simple/images/mapping-preview.png",
     "fields": [{
       "name": "title",
       "label": "Title",
