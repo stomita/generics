@@ -19,3 +19,17 @@ app.get "/api/identity", (req, res) ->
     instanceUrl: req.session.instanceUrl
   conn.identity().then (identity) ->
     res.send identity
+  , (err) ->
+    res.send err, 500
+
+###
+#
+###
+app.get "/api/reports", (req, res) ->
+  conn = new jsforce.Connection
+    accessToken: req.session.accessToken
+    instanceUrl: req.session.instanceUrl
+  conn.analytics.reports().then (reports) ->
+    res.send reports
+  , (err) ->
+    res.send err, 500

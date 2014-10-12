@@ -16,7 +16,8 @@ app = angular.module "app", [
       controller: "WizardCtrl"
       templateUrl: "templates/wizard.html"
     .otherwise
-      templateUrl: "templates/error.html"
+      controller: "WizardCtrl"
+      templateUrl: "templates/wizard.html"
 ]
 
 .controller "MainCtrl", [ "$scope", ($scope) ->
