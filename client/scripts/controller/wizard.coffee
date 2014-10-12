@@ -1,5 +1,5 @@
 module.exports = ($scope, $routeParams, $location) ->
-  console.log $routeParams
+  $scope.wizardState = {} unless $scope.wizardState
   $scope.steps = [
     id: "start"
     title: "Welcome"

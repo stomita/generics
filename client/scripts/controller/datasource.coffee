@@ -15,6 +15,7 @@ module.exports = ($scope, $http, $location) ->
         res
   $scope.activeReport = null
   $scope.$watch "activeReport", (report) ->
+    return unless report
     $scope.metadata =
       $http.get "/api/reports/#{report.id}/metadata"
         .then (res) ->
