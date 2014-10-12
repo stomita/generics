@@ -1,4 +1,4 @@
-app = require "./app"
+app = require "../app"
 jsforce = require "jsforce"
 
 oauth2 = new jsforce.OAuth2

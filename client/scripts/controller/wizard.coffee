@@ -6,14 +6,13 @@ module.exports = ($scope, $routeParams, $location) ->
     title: "Welcome"
     isEnabled: -> true
   ,
+    id: "template"
+    title: "Choose Mobile Template"
+    isEnabled: -> true
+  ,
     id: "connect"
     title: "Establish Connection"
     isEnabled: -> true
-  ,
-    id: "template"
-    title: "Choose Mobile Template"
-    isEnabled: ->
-      $scope.wizardState.conn
   ,
     id: "datasource"
     title: "Choose Data Source"
@@ -29,6 +28,5 @@ module.exports = ($scope, $routeParams, $location) ->
   $scope.nextStep = ->
     nextStep = $scope.steps[$scope.activeStepIndex+1]
     $location.url("/step/" + nextStep.id) if nextStep
-
 
 module.exports.$inject = [ "$scope", "$routeParams", "$location" ]
