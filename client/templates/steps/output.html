@@ -1,4 +1,13 @@
-<div ng-controller="OutputCtrl">
+<div ng-controller="OutputCtrl" class="wizard-step-output">
   <h2>Output as Mobile Website</h2>
-  {{ outputResult.length }}
+  <div class="row">
+    <div class="col-md-4" ng-repeat="cloud in clouds">
+      <div class="well cloud-item" ng-click="selectCloud(cloud)">
+        <div>
+          <img src="{{ cloud.imageUrl }}">
+        </div>
+        <span class="title">{{ cloud.name }}</span>
+      </div>
+    </div>
+  </div>
 </div>

@@ -6,14 +6,36 @@ module.exports = ($scope, $http, $location) ->
   $location.url("/step/template") unless $scope.template
   $location.url("/step/datasource") unless $scope.reportId
   $location.url("/step/mapping") unless $scope.mapping
-  $scope.outputResult =
-    $http.post "/api/output",
-      mapping: $scope.mapping
-      reportId: $scope.reportId
-      template: $scope.template
-    .then (res) ->
-      console.log res.data
-      res.data
-    .catch handleError
+
+  $scope.clouds = [
+    name: "heroku"
+    title: "Heroku"
+    imageUrl: "/images/heroku.png"
+  ,
+    name: "aws"
+    title: "Amazon Web Service S3"
+    imageUrl: "/images/aws_s3.png"
+  ,
+    name: "github"
+    title: "Github Pages"
+    imageUrl: "/images/github.png"
+  ]
+
+  $scope.selectCloud = (cloud) ->
+    alert("Service is not supported yet.") if cloud.name != "aws"
+    $scope.loading = true
+    $scope.outputResult =
+      $http.post "/api/output",
+        mapping: $scope.mapping
+        reportId: $scope.reportId
+        template: $scope.template
+        outputTo: cloud.name
+      .then (res) ->
+        console.log res.data
+        res.data
+      .catch handleError
+      .then (res) ->
+        $scope.loading = false
+        res
 
 module.exports.$inject = [ "$scope", "$http", "$location" ]
