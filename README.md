@@ -2,6 +2,12 @@
 
 An open source tool to easily create mobile-ready web site based on Salesforce-stored data
 
+## Service
+
+Running on Heroku:
+
+https://generics-app.herokuapp.com
+
 ## Setup
 
 Make sure npm and grunt is installed.
