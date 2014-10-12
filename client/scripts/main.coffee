@@ -15,10 +15,10 @@ app = angular.module "app", [
   $routeProvider
     .when "/step/:step",
       controller: "WizardCtrl"
-      templateUrl: "templates/wizard.html"
+      templateUrl: "partials/wizard.html"
     .otherwise
       controller: "WizardCtrl"
-      templateUrl: "templates/wizard.html"
+      templateUrl: "partials/wizard.html"
 ]
 
 .controller "MainCtrl", [ "$scope", ($scope) ->
