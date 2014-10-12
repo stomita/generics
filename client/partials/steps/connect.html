@@ -11,8 +11,10 @@
       <a class="btn btn-primary pull-right" ng-click="nextStep()">Next &raquo;</a>
       <a class="btn pull-right" href="/auth/salesforce?prompt=login">Connect with Different Account</a>
     </div>
-    <div ng-show="!identity">
-      <img src="/images/salesforce.png"><br/>
+    <div ng-show="!identity" style="text-align: center">
+      <div style="padding:10px">
+        <img src="/images/salesforce.png" style="width:200px">
+      </div>
       <a class="btn btn-primary btn-lg" href="/auth/salesforce">Connect to Salesforce</a>
     </div>
   </div>
