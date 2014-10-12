@@ -1,6 +1,8 @@
 node_modules
+.tmp
 
+# files used in development
+Procfile.*
 .env
 .env.*
 
-.tmp
