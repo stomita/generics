@@ -4,12 +4,12 @@
     <i class="fa fa-circle-o-notch fa-spin fa-3x"></i>
   </div>
   <div ng-show="!loading">
-    <div ng-show="connection">
-      Name: {{ connection.identity.display_name }} <br/>
-      Username: {{ connection.identity.username }} <br/>
+    <div ng-show="identity">
+      Name: {{ identity.display_name }} <br/>
+      Username: {{ identity.username }} <br/>
       <a class="btn btn-primary" ng-click="nextStep()">Next &raquo;</a>
     </div>
-    <div ng-show="!connection">
+    <div ng-show="!identity">
       <a class="btn btn-primary" href="/auth/salesforce">Connect to Salesforce</a>
     </div>
   </div>

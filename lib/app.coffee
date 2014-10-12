@@ -24,7 +24,7 @@ app.use express.static(path.join(__dirname, "../public"))
 app.use errorHandler()  if "development" is app.get("env")
 
 require "./routes/auth"
-require "./routes/connection"
+require "./routes/api"
 
 http.createServer(app).listen app.get("port"), ->
   console.log "Express server listening on port " + app.get("port")
