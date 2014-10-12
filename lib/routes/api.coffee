@@ -97,9 +97,9 @@ app.post "/api/output", (req, res) ->
 ###
 app.get "/api/templates", (req, res) ->
   res.send [{
-    "name": "sunnyvale",
-    "title": "Sunnyvale",
-    "previewUrl": "/templates/sunnyvale/images/preview.png"
+    "name": "simple",
+    "title": "Simple",
+    "previewUrl": "/templates/simple/images/preview.png",
     "fields": [{
       "name": "title",
       "label": "Title",
@@ -125,6 +125,10 @@ app.get "/api/templates", (req, res) ->
       "label": "Icon #3",
       "type": "string"
     }]
+  }, {
+    "name": "sunnyvale",
+    "title": "Sunnyvale",
+    "previewUrl": "/templates/sunnyvale/images/preview.png"
   }, {
     "name": "redmond",
     "title": "Redmond",

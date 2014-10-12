@@ -1,7 +1,7 @@
 <div>
   <ul class="nav nav-wizard">
     <li ng-repeat="step in steps" ng-class="{ active: step.active }">
-      <a href="/#/step/{{ step.id }}">{{ step.title }}</a>
+      {{ step.title }}
     </li>
   </ul>
   <div class="slide-animate-container">

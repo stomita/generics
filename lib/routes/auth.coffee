@@ -12,7 +12,7 @@ oauth2 = new jsforce.OAuth2
 app.get "/auth/salesforce", (req, res) ->
   state = require('crypto').randomBytes(48).toString('base64')
   req.session.state = state
-  authzUrl = oauth2.getAuthorizationUrl(state: state)
+  authzUrl = oauth2.getAuthorizationUrl(state: state, prompt: req.param("prompt"))
   res.redirect authzUrl
 
 

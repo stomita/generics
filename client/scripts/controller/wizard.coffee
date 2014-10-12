@@ -28,6 +28,10 @@ module.exports = ($scope, $routeParams, $location) ->
     nextStep = $scope.steps[$scope.activeStepIndex+1]
     $location.url("/step/" + nextStep.id) if nextStep
 
+  $scope.prevStep = ->
+    prevStep = $scope.steps[$scope.activeStepIndex-1]
+    $location.url("/step/" + prevStep.id) if prevStep
+
   console.log "active step", $scope.activeStep
   $location.url("/step/#{$scope.steps[0].id}") unless $scope.activeStep
 

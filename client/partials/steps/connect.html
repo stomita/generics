@@ -1,15 +1,18 @@
-<div ng-controller="ConnectCtrl">
+<div ng-controller="ConnectCtrl" class="wizard-step-connect">
   <div class="loading-indicator" ng-show="loading">
     <i class="loading-icon fa fa-circle-o-notch fa-spin fa-3x"></i>
   </div>
   <h2>Connect</h2>
   <div ng-show="!loading">
     <div ng-show="identity">
-      Name: {{ identity.display_name }} <br/>
-      Username: {{ identity.username }} <br/>
+      <div class="alert alert-info">
+        You're logged in as : <b>{{ identity.display_name }}</b> (username: <b>{{ identity.username }}</b>)
+      </div>
       <a class="btn btn-primary pull-right" ng-click="nextStep()">Next &raquo;</a>
+      <a class="btn pull-right" href="/auth/salesforce?prompt=login">Connect with Different Account</a>
     </div>
     <div ng-show="!identity">
+      <img src="/images/salesforce.png"><br/>
       <a class="btn btn-primary btn-lg" href="/auth/salesforce">Connect to Salesforce</a>
     </div>
   </div>

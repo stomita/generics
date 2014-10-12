@@ -14,6 +14,7 @@ module.exports = ($scope, $http, $location) ->
         $scope.loading = false
         res
   $scope.selectTemplate = (template) ->
+    return alert("This template is not supported yet.") if template.name != "simple"
     $scope.setValue("template", template)
     $scope.nextStep()
 
