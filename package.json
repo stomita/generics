@@ -4,7 +4,8 @@
   "description": "An open source tool to easily create mobile-aware web site based on database stored data",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "preinstall": "npm install -g grunt-cli",
+    "postinstall": "grunt build"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,22 @@
     "morgan": "^1.3.2",
     "mustache": "^0.8.2",
     "promise": "^6.0.0",
-    "underscore": "^1.7.0"
+    "underscore": "^1.7.0",
+    "browserify": "^5.12.1",
+    "browserify-shim": "^3.7.0",
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^3.0.1",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-coffee": "^0.11.1",
+    "grunt-contrib-copy": "^0.6.0",
+    "grunt-contrib-less": "^0.11.4",
+    "grunt-contrib-watch": "^0.6.1",
+    "load-grunt-tasks": "^0.6.0"
+  },
+  "browserify-shim": {
+    "angular": "global:angular"
+  },
+  "devDependencies": {
+    "browserify": "^6.0.3"
   }
 }
