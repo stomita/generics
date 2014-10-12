@@ -1,16 +1,30 @@
-# generics
+# SiteGenerics
 
-A tool to easily create mobile-aware web site based on database stored data.
-
-Useful for EC-sites with plenty of products to sell, or restaurants with grand menus to be updated periodically.
-
-Because it generates static HTML pages, generated site can be hosted on any web server, including Amazon S3, Github Pages, Bitbucket pages, and of course Heroku.
-
-## Usage
-
+An open source tool to easily create mobile-ready web site based on Salesforce-stored data
 
 ## Setup
 
+Make sure npm and grunt is installed.
+
+```
+npm install
+grunt build
+```
+
+Then run application using node command
+```
+node app.js
+```
+
+You need to set environment variables to get connected to services.
+```
+SF_CLIENT_ID="client id for OAuth2 client for Salesforce API"
+SF_CLIENT_SECRET="client secret for OAuth2 client for Salesforce API"
+SF_REDIRECT_URI="redirect uri for OAuth2 client for Salesforce API
+AWS_ACCESS_KEY_ID="amazon aws access key id"
+AWS_SECRET_ACCESS_KEY="amazon aws secret access key"
+AWS_S3_BUCKET_NAME="aws bucket name to publish"
+```
 
 ## License
 
