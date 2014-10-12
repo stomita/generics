@@ -64,16 +64,25 @@ app.get "/api/reports/:reportId/metadata", (req, res) ->
 getRecords = (conn, reportId, mapping) ->
   conn.analytics.report(reportId).execute(details: true).then (result) ->
     meta = result.reportMetadata
-    for row, i in result.factMap["T!T"]?.rows || []
-      record = {}
-      for cell, index in row.dataCells
-        record[meta.detailColumns[index]] =
-          if /^<a\s+/.test(cell.label) then cell.value else cell.label
-      mappedRecord = { id: String(i) }
-      for field, column of mapping
-        mappedRecord[field] = record[column]
-      mappedRecord
+    {
+      title: meta.title
+      records:
+        for row, i in result.factMap["T!T"]?.rows || []
+          record = {}
+          for cell, index in row.dataCells
+            record[meta.detailColumns[index]] =
+              if /^<a\s+/.test(cell.label) then cell.value else cell.label
+          mappedRecord = { id: String(i) }
+          for field, column of mapping
+            mappedRecord[field] = record[column]
+          mappedRecord
+    }
 
+saveDataAsTemplate = (templateName, result) ->
+  # TODO
+  {
+    url: "http://#{process.env.S3_OUTPUT_BUCKET}.s3-website-us-east-1.amazonaws.com"
+  }
 
 ###
 #
@@ -86,8 +95,10 @@ app.post "/api/output", (req, res) ->
     accessToken: req.session.accessToken
     instanceUrl: req.session.instanceUrl
   getRecords(conn, reportId, mapping)
-    .then (records) ->
-      res.send records
+    .then (result) ->
+      saveDataAsTemplate(template.name, result)
+    .then (result) ->
+      res.send result
     , (err) ->
       res.send err, 500
 

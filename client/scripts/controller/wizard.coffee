@@ -4,19 +4,22 @@ module.exports = ($scope, $routeParams, $location) ->
     title: "Start"
   ,
     id: "connect"
-    title: "Establish Connection"
+    title: "Connection"
   ,
     id: "template"
-    title: "Select Template"
+    title: "Template"
   ,
     id: "datasource"
-    title: "Choose Data Source"
+    title: "Data Source"
   ,
     id: "mapping"
-    title: "Edit Field Mapping"
+    title: "Field Mapping"
   ,
     id: "output"
-    title: "Output as Website"
+    title: "Output"
+  ,
+    id: "complete"
+    title: "Complete"
   ]
   for step, index in $scope.steps when step.id == $routeParams.step
     step.active = true
