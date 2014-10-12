@@ -1,8 +1,8 @@
 <div ng-controller="ConnectCtrl">
-  <h2>Connect</h2>
-  <div ng-show="loading">
-    <i class="fa fa-circle-o-notch fa-spin fa-3x"></i>
+  <div class="loading-indicator" ng-show="loading">
+    <i class="loading-icon fa fa-circle-o-notch fa-spin fa-3x"></i>
   </div>
+  <h2>Connect</h2>
   <div ng-show="!loading">
     <div ng-show="identity">
       Name: {{ identity.display_name }} <br/>

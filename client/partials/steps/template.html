@@ -1,9 +1,13 @@
 <div ng-controller="TemplateCtrl" class="wizard-step-template">
   <h2>Select Site Template</h2>
-  <div class="well" ng-repeat="template in templates" ng-click="selectTemplate(template)">
-    <div>
-      <img src="{{ template.preview }}">
+  <div class="row">
+    <div class="col-md-4" ng-repeat="template in templates">
+      <div class="well template-item" ng-click="selectTemplate(template)">
+        <div class="template-image">
+          <img src="{{ template.previewUrl }}">
+        </div>
+        <h4 class="title">{{ template.title }}</h4>
+      </div>
     </div>
-    <div>{{ template.title }}</div>
   </div>
 </div>

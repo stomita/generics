@@ -2,10 +2,11 @@
   <h2>Choose Data Source</h2>
   <form class="form-inline">
     <div class="form-group">
-      <select class="form-control" ng-model="reportId" ng-change="selectReport()" ng-options="report.id as report.name for report in reports">
+      <select class="form-control" ng-model="reportId" ng-options="report.id as report.name for report in reports">
         <option value="" selected="selected">-- Select a report to publish ---</option>
       </select>
     </div>
+    <button class="btn btn-primary" ng-class="{ disabled: !reportId }" ng-click="selectReport()">Next &raquo;</button>
   </form>
 </div>
 

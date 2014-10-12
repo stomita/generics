@@ -1,12 +1,15 @@
 <div ng-controller="OutputCtrl" class="wizard-step-output">
+  <div class="loading-indicator" ng-show="loading">
+    <i class="loading-icon fa fa-circle-o-notch fa-spin fa-3x"></i>
+  </div>
   <h2>Output as Mobile Website</h2>
   <div class="row">
     <div class="col-md-4" ng-repeat="cloud in clouds">
       <div class="well cloud-item" ng-click="selectCloud(cloud)">
-        <div>
+        <div class="cloud-image">
           <img src="{{ cloud.imageUrl }}">
         </div>
-        <span class="title">{{ cloud.name }}</span>
+        <h4 class="title">{{ cloud.title }}</h4>
       </div>
     </div>
   </div>

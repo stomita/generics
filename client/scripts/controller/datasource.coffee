@@ -3,6 +3,7 @@ module.exports = ($scope, $http, $location) ->
     $location.url("/step/connect") if err.status == 401
     console.error err
     null
+  $location.url("/step/template") unless $scope.template
   $scope.loading = true
   $scope.reports =
     $http.get "/api/reports"

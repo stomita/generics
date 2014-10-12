@@ -22,7 +22,7 @@ module.exports = ($scope, $http, $location) ->
   ]
 
   $scope.selectCloud = (cloud) ->
-    alert("Service is not supported yet.") if cloud.name != "aws"
+    return alert("Service is not supported yet.") if cloud.name != "aws"
     $scope.loading = true
     $scope.outputResult =
       $http.post "/api/output",

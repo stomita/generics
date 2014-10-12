@@ -18,6 +18,7 @@ module.exports = (grunt) ->
           "<%= srcDir %>/partials/**/*.html"
           "<%= srcDir %>/templates/**/*"
           "<%= srcDir %>/index.html"
+          "<%= srcDir %>/images/**/*"
         ]
         tasks: [ "build" ]
 
@@ -41,7 +42,7 @@ module.exports = (grunt) ->
         files: [
           expand: true
           cwd: "<%= srcDir %>"
-          src: [ "index.html", "./partials/**/*.html", "./templates/**" ]
+          src: [ "index.html", "./partials/**/*.html", "./templates/**/*", "./images/**/*" ]
           dest: "<%= publicDir %>"
         ]
 
